@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HygieGo - Street Food Standard Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar" id="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i> HygieGo
+            </div>
+            <div class="nav-links">
+                <a href="#services">บริการของเรา</a>
+                <a href="#pricing">แพ็คเกจราคา</a>
+                <a href="#contact">ติดต่อสอบถาม</a>
+            </div>
+            <div class="nav-auth" id="nav-auth-section">
+                <button class="btn-login" onclick="openModal('auth-modal')">เข้าสู่ระบบ</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="homepage-content">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>ยกระดับร้าน Street Food<br>สู่มาตรฐานสากล</h1>
+                <p>เราคือเพื่อนคู่คิดที่จะช่วยจัดการระบบความสะอาด<br>ให้ร้านของคุณได้รับใบรับรอง ถูกต้อง รวดเร็ว และเป็นมืออาชีพ</p>
+                <div class="hero-btns">
+                    <a href="#pricing" class="btn-primary">ดูแพ็คเกจราคา</a>
+                    <a href="#" class="btn-secondary">ปรึกษาเราฟรี</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item"><h3>100%</h3><p>การันตีใบรับรอง</p></div>
+                <div class="stat-item"><h3>500+</h3><p>ร้านค้าที่ดูแล</p></div>
+                <div class="stat-item"><h3>24/7</h3><p>ทีมที่ปรึกษา</p></div>
+            </div>
+        </header>
+
+        <section id="pricing" class="pricing-section">
+            <div class="section-title">
+                <h2>เลือกแพ็คเกจที่เหมาะสมกับร้านคุณ</h2>
+                <p>บริการครบวงจร ตั้งแต่ตรวจสอบ ปรับปรุง จนถึงได้รับใบรับรอง</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card card-blue">
+                    <div class="card-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="card-header">
+                        <h3>แพ็คเกจออนไลน์</h3>
+                        <p>ตรวจสอบเบื้องต้น</p>
+                    </div>
+                    <div class="price">฿9,900<span>/ครั้ง</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> ตรวจสอบออนไลน์</li>
+                        <li><i class="fas fa-check"></i> รายงานผลใน 3 วัน</li>
+                    </ul>
+                    <button class="btn-buy btn-blue" onclick="handlePurchase('แพ็คเกจออนไลน์', 9900)">เลือกแพ็คเกจนี้</button>
+                </div>
+                <div class="price-card card-purple popular">
+                    <div class="popular-tag">แนะนำ</div>
+                    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="card-header">
+                        <h3>แพ็คเกจลงพื้นที่</h3>
+                        <p>ตรวจสอบละเอียด</p>
+                    </div>
+                    <div class="price">฿24,900<span>/ครั้ง</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>ลงพื้นที่จริง</strong></li>
+                        <li><i class="fas fa-check"></i> Tracking Real-time</li>
+                    </ul>
+                    <button class="btn-buy btn-purple" onclick="handlePurchase('แพ็คเกจลงพื้นที่', 24900)">เลือกแพ็คเกจนี้</button>
+                </div>
+                <div class="price-card card-green">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="card-header">
+                        <h3>แพ็คเกจรับรอง</h3>
+                        <p>การันตีผล</p>
+                    </div>
+                    <div class="price">฿49,900<span>/ครั้ง</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>การันตีใบรับรอง</strong></li>
+                        <li><i class="fas fa-check"></i> ดูแลต่อเนื่อง 1 ปี</li>
+                    </ul>
+                    <button class="btn-buy btn-green" onclick="handlePurchase('แพ็คเกจรับรอง', 49900)">เลือกแพ็คเกจนี้</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="system-dashboard" class="hidden">
+        <div class="app-layout">
+            <aside class="sidebar">
+                <div class="brand-side"><i class="fas fa-shield-alt"></i> HygieGo <span id="role-badge" class="badge">USER</span></div>
+                <div class="user-info">
+                    <div class="avatar" id="u-avatar">U</div>
+                    <div><div id="u-name">User</div><small id="u-status">Online</small></div>
+                </div>
+                <nav class="menu" id="sidebar-menu">
+                    </nav>
+                <div class="bottom-menu">
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <section id="view-customer" class="view-section hidden">
+                    <h1>Dashboard ลูกค้า</h1>
+                    <div class="stats-grid">
+                        <div class="card queue-card">
+                            <h3><i class="fas fa-list-ol"></i> คิวของคุณ</h3>
+                            <div class="big-num" id="user-queue">--</div>
+                            <p id="queue-status">ไม่มีการดำเนินงาน</p>
+                        </div>
+                        <div class="card">
+                            <h3>แพ็คเกจปัจจุบัน</h3>
+                            <div class="big-num" id="active-package" style="font-size: 24px;">ไม่มี</div>
+                        </div>
+                    </div>
+                    <h3 style="margin-top:30px;">ติดตามสถานะ (Tracking)</h3>
+                    <div class="tracking-list" id="tracking-list"></div>
+                </section>
+
+                <section id="view-chat" class="view-section hidden">
+                    <div class="chat-container">
+                        <div class="chat-head">
+                            <span><i class="fas fa-comments"></i> Live Support</span>
+                            <button onclick="toggleBot()" class="btn-sm" id="btn-bot-mode">AI Bot Mode</button>
+                        </div>
+                        <div class="chat-body" id="chat-body"></div>
+                        <div class="chat-foot">
+                            <input type="text" id="chat-input" placeholder="พิมพ์ข้อความ... (เช่น ราคา, ติดต่อ)">
+                            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-partner" class="view-section hidden">
+                    <h1>Partner Job Board</h1>
+                    <div id="partner-jobs"></div>
+                </section>
+
+                <section id="view-admin" class="view-section hidden">
+                    <h1>Admin Dashboard</h1>
+                    <div class="stats-grid">
+                        <div class="card"><h3>รายได้รวม</h3><div class="big-num text-green" id="report-rev">฿0</div></div>
+                        <div class="card"><h3>งานทั้งหมด</h3><div class="big-num" id="report-orders">0</div></div>
+                    </div>
+                    <table class="data-table">
+                        <thead><tr><th>Queue</th><th>ลูกค้า</th><th>สถานะ</th><th>Action</th></tr></thead>
+                        <tbody id="admin-table"></tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal-overlay hidden">
+        <div class="modal-content login-theme">
+            <span class="close-modal" onclick="closeModal('auth-modal')">&times;</span>
+            <div class="login-header">
+                <i class="fas fa-shield-alt logo-icon"></i>
+                <h2>HygieGo</h2>
+                <p>เข้าสู่ระบบเพื่อตรวจสอบความคืบหน้า</p>
+            </div>
+            <div class="input-group">
+                <label>ชื่อผู้ใช้ (Username)</label>
+                <input type="text" id="login-user" placeholder="ระบุ: user, partner, admin">
+            </div>
+            <div class="input-group">
+                <label>รหัสผ่าน</label>
+                <input type="password" id="login-pass" placeholder="••••••••">
+            </div>
+            <button class="btn-full-login" onclick="login()">เข้าสู่ระบบ</button>
+            <p class="hint-text">*Tip: พิมพ์ <b>user</b>, <b>partner</b>, หรือ <b>admin</b> เพื่อทดสอบ</p>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal-overlay hidden">
+        <div class="modal-content payment-theme">
+            <span class="close-modal" onclick="closeModal('payment-modal')">&times;</span>
+            <h2>ชำระค่าบริการ</h2>
+            <div class="pay-summary">
+                <p>รายการ: <strong id="pay-item">...</strong></p>
+                <p class="price-tag" id="pay-price">...</p>
+            </div>
+            <div class="input-group">
+                <label>หมายเลขบัตรเครดิต (จำลอง)</label>
+                <input type="text" value="4242 4242 4242 4242" readonly style="background:#f5f5f5;">
+            </div>
+            <button class="btn-full-green" onclick="processPayment()">ยืนยันการชำระเงิน</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
